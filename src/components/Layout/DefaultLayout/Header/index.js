@@ -1,19 +1,50 @@
 import classNames from "classnames/bind"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faPlus } from "@fortawesome/free-solid-svg-icons"
 import { useEffect, useState } from "react"
-import Button from "../../../Button"
-import { Wrapper as PopperWrapper } from "../../../../components/Popper"
-import {
-  faCircleXmark,
-  faMagnifyingGlass,
-} from "@fortawesome/free-solid-svg-icons"
-import { faSpinner } from "@fortawesome/free-solid-svg-icons"
 import Tippy from "@tippyjs/react/headless"
-import "tippy.js/dist/tippy.css"
 import style from "./Header.module.scss"
+
 import images from "../../../../assets/images"
 import AccountItem from "../../../AccountItem"
+import Button from "../../../Button"
+import Menu from "../../../Popper/Menu"
+import { Wrapper as PopperWrapper } from "../../../../components/Popper"
+import {
+  faA,
+  faCircleQuestion,
+  faCircleXmark,
+  faEllipsisVertical,
+  faKeyboard,
+  faLightbulb,
+  faMagnifyingGlass,
+  faMoon,
+  faPlus,
+  faSpinner,
+} from "@fortawesome/free-solid-svg-icons"
+
+const MENU_ITEMS = [
+  {
+    icon: <FontAwesomeIcon icon={faLightbulb} />,
+    title: "Trung tâm Nhà sáng tạo LIVE",
+  },
+  {
+    icon: <FontAwesomeIcon icon={faA} />,
+    title: "Tiếng Việt",
+  },
+  {
+    icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+    title: "Phản hồi và trợ giúp",
+    to: "/feedback",
+  },
+  {
+    icon: <FontAwesomeIcon icon={faKeyboard} />,
+    title: "Phím tắt trên bàn phím",
+  },
+  {
+    icon: <FontAwesomeIcon icon={faMoon} />,
+    title: "Chế độ tối",
+  },
+]
 
 const cx = classNames.bind(style)
 
@@ -70,6 +101,11 @@ function Header() {
             Upload
           </Button>
           <Button primary>Đăng nhập</Button>
+          <Menu items={MENU_ITEMS}>
+            <button className={cx("more-btn")}>
+              <FontAwesomeIcon icon={faEllipsisVertical} />
+            </button>
+          </Menu>
         </div>
       </div>
     </header>
