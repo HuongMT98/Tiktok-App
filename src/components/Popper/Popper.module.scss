@@ -3,6 +3,7 @@
   background: rgb(255, 255, 255);
   box-shadow: rgb(0 0 0 / 12%) 0px 2px 12px;
   max-height: min((100vh - 96px) - 60px, 734px);
+
   min-height: 100px;
   display: flex;
   flex-direction: column;
@@ -12,4 +13,13 @@
   -moz-border-radius: 8px;
   -ms-border-radius: 8px;
   -o-border-radius: 8px;
+  overflow: scroll;
+  &::-webkit-scrollbar {
+    width: 5px;
+    color: red;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgb(227, 232, 227);
+    border-radius: 10px;
+  }
 }

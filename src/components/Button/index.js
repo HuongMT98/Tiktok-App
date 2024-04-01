@@ -14,6 +14,8 @@ function Button({
   small,
   large,
   dd,
+  darkmode,
+  separate,
 }) {
   let Component = "button"
   const props = {
@@ -26,7 +28,16 @@ function Button({
     props.href = href
     Component = "a"
   }
-  const classes = cx("wrapper", { primary, white, small, large, dd, to })
+  const classes = cx("wrapper", {
+    primary,
+    white,
+    small,
+    large,
+    dd,
+    to,
+    darkmode,
+    separate,
+  })
 
   return (
     <Component className={classes} {...props}>
