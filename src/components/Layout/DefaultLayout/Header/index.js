@@ -4,9 +4,9 @@ import Search from "../../../Search"
 import Tippy from "@tippyjs/react"
 import "tippy.js/dist/tippy.css"
 import style from "./Header.module.scss"
-
+import { Link } from "react-router-dom"
 import images from "../../../../assets/images"
-
+import { publicRoutes } from "../../../../routes"
 import Button from "../../../Button"
 import Menu from "../../../Popper/Menu"
 
@@ -116,13 +116,12 @@ function Header() {
   return (
     <header className={cx("wrapper")}>
       <div className={cx("inner")}>
-        <div className={cx("logo")}>
+        <Link to={publicRoutes.home} className={cx("logo")}>
           <img src={images.logo} alt='tiktok'></img>
-        </div>
+        </Link>
 
         {/* Kết quả tìm kiếm */}
         <Search />
-
         {/* User Login *********************************************************************/}
         <div className={cx("actions")}>
           {currentUser ? (
