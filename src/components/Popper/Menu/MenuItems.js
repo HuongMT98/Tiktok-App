@@ -18,6 +18,7 @@ function MenuItem({ data, onClick }) {
     >
       {data.icon}
       {data.title}
+      {data.separate}
     </Button>
   )
 }
