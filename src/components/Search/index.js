@@ -30,7 +30,6 @@ function Search() {
       setSearchResult([])
       return
     }
-
     fetch(
       `https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(
         searchValue
