@@ -3,6 +3,8 @@ import AccountItem from "../../components/AccountItem"
 import { Wrapper as PopperWrapper } from "../../components/Popper"
 import classNames from "classnames/bind"
 import { useEffect, useState, useRef } from "react"
+
+import request from "../../utils/request"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import style from "./Search.module.scss"
 import { useDebounce } from "../../hooks"
@@ -19,11 +21,22 @@ function Search() {
   const [searchResult, setSearchResult] = useState([])
   const [showResult, setShowResult] = useState(true)
   const [loading, setLoading] = useState(false)
+
+  // Tạo một biến nhận 2 tham số value và delay từ hàm useDebounce(value,delay)
   const debounced = useDebounce(searchValue, 500)
 
   const handleHideResult = () => {
     setShowResult(false)
   }
+
+  const handleChange = (e) => {
+    const searchValue = e.target.value
+    if (!searchValue.startsWith(" ")) {
+      setSearchValue(searchValue)
+    }
+  }
+
+  const handleSubmit = (e) => {}
 
   const inputRef = useRef()
 
@@ -32,14 +45,16 @@ function Search() {
       setSearchResult([])
       return
     }
-    fetch(
-      `https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(
-        debounced
-      )}&type=less`
-    )
-      .then((res) => res.json())
+    request
+      .get(`users/search`, {
+        params: {
+          q: debounced,
+          type: "less",
+        },
+      })
+
       .then((res) => {
-        setSearchResult(res.data)
+        setSearchResult(res.data.data)
         setLoading(false)
       })
       .catch(() => {
@@ -60,7 +75,7 @@ function Search() {
       render={(attrs) => (
         <div className={cx("search-result")} tabIndex={-1} {...attrs}>
           <PopperWrapper>
-            <h4 className={cx("search-title")}>Account</h4>
+            <h4 className={cx("search-title")}>Tài Khoản</h4>
             {searchResult.map((result) => (
               <AccountItem key={result.id} data={result} />
             ))}
@@ -74,9 +89,9 @@ function Search() {
           ref={inputRef}
           value={searchValue}
           type='text'
-          placeholder='Tìm kiếm'
+          placeholder='Tìm Kiếm'
           spellCheck={false}
-          onChange={(e) => setSearchValue(e.target.value)}
+          onChange={handleChange}
           onFocus={() => setShowResult(true)}
         ></input>
 
@@ -89,7 +104,11 @@ function Search() {
             <FontAwesomeIcon icon={faCircleXmark} />
           </button>
         )}
-        <button className={cx("search-btn")}>
+        <button
+          className={cx("search-btn")}
+          onClick={handleSubmit}
+          onMouseDown={(e) => e.preventDefault()}
+        >
           <FontAwesomeIcon icon={faMagnifyingGlass} />
         </button>
       </div>

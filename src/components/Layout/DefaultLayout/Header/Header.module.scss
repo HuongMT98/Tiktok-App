@@ -1,18 +1,21 @@
 .wrapper {
-  --search-button-width: 52px;
-
-  height: var(--default-layout-header-height);
-  margin-top: 10px;
-  box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
-  justify-content: center;
+  z-index: 100;
+  position: fixed;
+  top: 0;
   display: flex;
+  justify-content: space-around;
   width: 100%;
+  height: var(--default-layout-header-height);
+  background-color: var(--white);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12);
+  --search-button-width: 52px;
 }
 .inner {
-  height: 100%;
-  width: var(--default-layout-width);
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  width: var(--default-layout-width);
+  height: 100%;
 }
 //Header
 .actions {
@@ -22,44 +25,58 @@
 .header {
   position: sticky;
   top: 0;
-  background-color: var(--white);
-  border-bottom: 1px solid rgba(22, 24, 35, 0.12);
-  height: 50px;
   display: flex;
   width: 100%;
-  padding: 1rem;
+  height: 50px;
+  padding: 1rem 0;
+  background-color: var(--white);
+  border-bottom: 1px solid rgba(22, 24, 35, 0.12);
 }
 .back-btn {
   width: 50px;
   height: 100%;
+
   background-color: transparent;
+
   cursor: pointer;
 }
 .header-title {
   position: absolute;
-  right: 50%;
   top: 50%;
+  right: 50%;
+
   transform: translate(50%, -50%);
 }
 .avatar {
   width: 32px;
   height: 32px;
+
   border-radius: 50%;
+
   cursor: pointer;
 }
 .mess-btn {
-  font-size: 2.5rem;
   padding: 1.2rem;
+
   background-color: transparent;
+
+  font-size: 2.5rem;
+
   cursor: pointer;
 }
 .mail-btn {
-  font-size: 2.5rem;
   padding: 1.2rem;
+
   background-color: transparent;
+
+  font-size: 2.5rem;
+
   cursor: pointer;
 }
 .more-btn {
   padding-left: 2rem;
+
   background-color: transparent;
+
+  font-size: 2rem;
 }

@@ -15,6 +15,13 @@
   --text-color: #333;
   --default-layout-header-height: 60px;
   --default-layout-width: calc(100% - 50px);
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgb(149, 171, 149);
+    border-radius: 10px;
+  }
 }
 html {
   font-size: 62.5%;
