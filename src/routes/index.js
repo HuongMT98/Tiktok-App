@@ -7,6 +7,9 @@ import Following from "../pages/Following"
 import Profile from "../pages/Profile"
 import Upload from "../pages/Upload"
 import Search from "../pages/Search"
+import Friend from "../pages/Friend"
+import Findout from "../pages/Findout"
+import Live from "../pages/Live"
 
 //! publicRoutes
 const publicRoutes = [
@@ -15,6 +18,9 @@ const publicRoutes = [
   { path: routesConfig.profile, component: Profile },
   { path: routesConfig.upload, component: Upload, layout: HeaderOnly },
   { path: routesConfig.search, component: Search, layout: null },
+  { path: routesConfig.friend, component: Friend },
+  { path: routesConfig.findout, component: Findout },
+  { path: routesConfig.live, component: Live },
 ]
 const PrivateRoutes = []
 

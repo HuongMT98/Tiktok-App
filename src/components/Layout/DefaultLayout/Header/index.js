@@ -176,7 +176,7 @@ function Header() {
                 <button className={cx("more-btn")}>
                   <img
                     className={cx("avatar")}
-                    src='https://p9-sign-sg.tiktokcdn.com/aweme/720x720/tos-alisg-avt-0068/e7adfca76a7967382d9487ddf513ad22.jpeg?lk3s=a5d48078&x-expires=1712725200&x-signature=bTl5v07vTygusl4LuRt9mehiVCY%3D'
+                    src='https://kenh14cdn.com/thumb_w/660/203336854389633024/2023/7/8/photo-9-16888099662661094157342.jpg'
                     alt=''
                   ></img>
                 </button>
